@@ -1,0 +1,4 @@
+{
+    "platform": "eonteam/stm32g0",
+    "target": "stm32g071rb"
+}
