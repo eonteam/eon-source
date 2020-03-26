@@ -18,6 +18,20 @@
 // Macros
 // ===============================================================================
 
+// IRQ Macro for IRQ handlers
+#define IRQ(__IRQ__) __IRQ__()
+
+// For unused variables
+#define UNUSED(__X__) ((void) (__X__))
+
+// No pin macro
+#define NOPIN ((uint8_t) 255)
+
+// Ignore Macro
+#ifndef IGNORE
+#define IGNORE ((uint8_t) 255)
+#endif
+
 #define PI 3.1415926535897932384626433832795
 #define HALF_PI 1.5707963267948966192313216916398
 #define TWO_PI 6.283185307179586476925286766559
