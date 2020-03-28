@@ -18,6 +18,16 @@
 // Macros
 // ===============================================================================
 
+// Macros for GNU compiler
+#if defined(__GNUC__)
+#ifndef __weak
+#define __weak __attribute__((weak))
+#endif
+#ifndef __packed
+#define __packed __attribute__((__packed__))
+#endif
+#endif
+
 // IRQ Macro for IRQ handlers
 #define IRQ(__IRQ__) __IRQ__()
 
