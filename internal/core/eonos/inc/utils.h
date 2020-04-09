@@ -75,12 +75,6 @@ __STATIC_INLINE long map(long x, long in_min, long in_max, long out_min, long ou
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-// Converts BCD format to binary
-__STATIC_INLINE uint8_t bcd2bin(uint8_t val) { return val - 6 * (val >> 4); }
-
-// Converts binary to BCD format
-__STATIC_INLINE uint8_t bin2bcd(uint8_t val) { return val + 6 * (val / 10); }
-
 // -- Words related functions
 
 // Make a half word from two bytes (high and low).
@@ -97,5 +91,15 @@ __STATIC_INLINE uint16_t lowHalfWord(uint32_t w) {
 __STATIC_INLINE uint16_t highHalfWord(uint32_t w) {
   return (uint16_t)((w) >> 16);
 }
+
+// ===============================================================================
+// Functions
+// ===============================================================================
+
+// Converts BCD format to binary
+uint8_t bcd2bin(uint8_t val);
+
+// Converts binary to BCD format
+uint8_t bin2bcd(uint8_t val);
 
 #endif
