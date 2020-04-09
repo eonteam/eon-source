@@ -23,7 +23,7 @@ uint8_t bin2bcd(uint8_t val) {
   return ((uint8_t)(bcdhigh << 4U) | Param);
 }
 
-uint8_t bcd2bin(uint32_t val) {
+uint8_t bcd2bin(uint8_t val) {
   uint32_t tmp;
   tmp = (((uint32_t) val & 0xF0U) >> 4U) * 10U;
   return (uint8_t)(tmp + ((uint32_t) val & 0x0FU));
