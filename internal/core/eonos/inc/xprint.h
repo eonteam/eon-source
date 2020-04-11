@@ -49,7 +49,7 @@ __STATIC_INLINE void xfprintlnUint(writeFn wr, uint32_t num, uint8_t base) {
   wr('\n');
 }
 // Print an integer ending with a new line
-__STATIC_INLINE void xfprintlnInt(writeFn wr, uint32_t num, uint8_t base) {
+__STATIC_INLINE void xfprintlnInt(writeFn wr, int64_t num, uint8_t base) {
   xfprintInt(wr, num, base);
   wr('\r');
   wr('\n');

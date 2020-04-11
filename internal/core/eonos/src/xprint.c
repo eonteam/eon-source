@@ -76,6 +76,7 @@ void xfprintf(writeFn wr, const char *format, ...) {
       case 'c':
       case 't':
       case 'd':
+      case 'u':
       case 'x':
       case 'o':
       case VERB_FLOAT_2DP:
@@ -86,7 +87,8 @@ void xfprintf(writeFn wr, const char *format, ...) {
         if (c == 'o') { base = 8; }
         int w = va_arg(va, int);
         if (c == 't' && w < base) { wr('0'); }
-        if (w < 0) {
+        // only int and float2dp have sign
+        if ((c == 'd' || c == VERB_FLOAT_2DP) && w < 0) {
           w = -w;
           wr('-');
         }
@@ -147,6 +149,7 @@ void xsprintf(xstr_t *xs, const char *format, ...) {
       case 'c':
       case 't':
       case 'd':
+      case 'u':
       case 'x':
       case 'o':
       case VERB_FLOAT_2DP:
@@ -157,7 +160,8 @@ void xsprintf(xstr_t *xs, const char *format, ...) {
         if (c == 'o') { base = 8; }
         int w = va_arg(va, int);
         if (c == 't' && w < base) { xstr_push(xs, '0'); }
-        if (w < 0) {
+        // only int and float2dp have sign
+        if ((c == 'd' || c == VERB_FLOAT_2DP) && w < 0) {
           w = -w;
           xstr_push(xs, '-');
         }
