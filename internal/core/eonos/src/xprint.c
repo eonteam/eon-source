@@ -10,13 +10,13 @@
 // Public Printing functions
 // ============================================================================
 
-void xfprint(writeFn wr, const char *s) {
+void xfprint(writeFn_t wr, const char *s) {
   for (uint8_t i = 0; s[i] != '\0'; i++) {
     wr(s[i]);
   }
 }
 
-void xfprintUint(writeFn wr, uint32_t num, uint8_t base) {
+void xfprintUint(writeFn_t wr, uint32_t num, uint8_t base) {
   char buf[12] = {0};
   int8_t last_pos = sizeof(buf) - 1;
   char *str = &buf[last_pos];
@@ -44,7 +44,7 @@ void xfprintUint(writeFn wr, uint32_t num, uint8_t base) {
   }
 }
 
-void xfprintInt(writeFn wr, int64_t num, uint8_t base) {
+void xfprintInt(writeFn_t wr, int64_t num, uint8_t base) {
   // handle negative numbers
   if (num < 0) {
     num = -num;
@@ -53,7 +53,7 @@ void xfprintInt(writeFn wr, int64_t num, uint8_t base) {
   xfprintUint(wr, num, base);
 }
 
-void xfprintf(writeFn wr, const char *format, ...) {
+void xfprintf(writeFn_t wr, const char *format, ...) {
   va_list va;
   va_start(va, format);
   uint8_t end = (uint8_t) strlen(format);

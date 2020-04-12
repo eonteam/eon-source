@@ -65,6 +65,17 @@
 #define bitWrite(value, bit, bitvalue) (bitvalue ? bitSet(value, bit) : bitClear(value, bit))
 
 // ===============================================================================
+// Types
+// ===============================================================================
+
+// write function type definition
+typedef void (*writeFn_t)(unsigned char c);
+// available function type definition
+typedef uint16_t (*availableFn_t)(void);
+// read function type definition
+typedef int (*readFn_t)(void);
+
+// ===============================================================================
 // Static inline Functions
 // ===============================================================================
 
