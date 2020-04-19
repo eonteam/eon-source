@@ -108,6 +108,8 @@ void xstr_clear(xstr_t *xs);
 bool xstr_push(xstr_t *xs, char c);
 // Pushes a string (const char*) into the xstring.
 bool xstr_pushString(xstr_t *xs, const char *s);
+// Pushes a string (const char*) into the xstring but at most `maxbytes`.
+bool xstr_pushStringN(xstr_t *xs, const char *s, xstrsize_t maxbytes);
 // Pushes "other" into the "xs".
 bool xstr_pushX(xstr_t *xs, const xstr_t *other);
 // Pushes an unsigned integer into the xstring.

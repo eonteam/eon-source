@@ -46,6 +46,17 @@ bool xstr_pushString(xstr_t *xs, const char *s) {
   return true;
 }
 
+bool xstr_pushStringN(xstr_t *xs, const char *s, xstrsize_t maxbytes) {
+  xstrsize_t len = strlen(s);
+  if (len > maxbytes) { len = maxbytes; }
+  for (xstrsize_t i = 0; i < len; i++) {
+    if (!xstr_push(xs, s[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 bool xstr_pushX(xstr_t *xs, const xstr_t *other) {
   for (XSTR_ITER(other, i)) {
     if (!xstr_push(xs, other->ptr[i])) {
