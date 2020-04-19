@@ -48,7 +48,7 @@
 // ===============================================================================
 
 // type of xstr size
-typedef uint8_t xstrsize_t;
+typedef uint16_t xstrsize_t;
 
 // xstr main type
 typedef struct {
