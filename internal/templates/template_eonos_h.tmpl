@@ -11,9 +11,10 @@
 #ifndef __EON_OS_H_
 #define __EON_OS_H_
 
-// Default includes
-#include "system.h"
-{{ if .DefHeaders }}{{ range .DefHeaders }}#include "{{ . }}.h"
+{{ if .Headers }}{{ range .Headers }}#include "{{ . }}"
 {{ end }}{{ end }}
+#if defined(PC_WRITE)
+#define pc_printf(fmt, ...) xfprintf(PC_WRITE, fmt, ##__VA_ARGS__)
+#endif
 
 #endif

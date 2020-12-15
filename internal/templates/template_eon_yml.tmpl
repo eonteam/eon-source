@@ -1,0 +1,25 @@
+# Project name
+name: {{ .Name }}
+
+# Libraries
+libs: {{ if .Libs }} {{ range $key, $value := .Libs }}
+  {{ $key }}: {{ $value }} {{ end }} {{ else }}
+  # Add the libraries you need, for example:
+  # eonteam/ds3231: v1.0.0 {{ end }}
+
+# Includes paths
+includes: {{ if .Includes }}{{ range .Includes }}
+  - {{ . }}{{ end }}{{ end }}
+
+# Environments
+environments: {{ if .Environments }}{{ range $key, $value := .Environments }}
+  {{ $key }}:
+    board:
+      name: {{ $value.Board.Name }}
+      platform: {{ $value.Board.PlatformName }}
+      target: {{ $value.Board.TargetName }}
+    macros: {{ if $value.Macros }}{{ range $value.Macros }}
+      - {{ . }} {{ end }} {{ else }} 
+      # Add your environment macros here, for example:
+      # - LED=PA9 {{ end }} 
+    {{ end }} {{ end }}
