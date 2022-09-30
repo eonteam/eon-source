@@ -31,6 +31,6 @@ typedef struct {
 // Get xtime object from unix time seconds
 void xtime_fromUnix(xtime_t *xt, uint32_t u);
 // Get the unix time seconds from a xtime object
-uint32_t xtime_toUnix(xtime_t *xt);
+uint32_t xtime_toUnix(const xtime_t *xt);
 
 #endif

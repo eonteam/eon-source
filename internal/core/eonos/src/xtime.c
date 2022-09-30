@@ -59,7 +59,7 @@ void xtime_fromUnix(xtime_t *xt, uint32_t u) {
     year++;
   }
   // Get year in xx format
-  xt->year = (uint8_t)(year - 2000);
+  xt->year = (uint8_t) (year - 2000);
 
   // Get month
   for (xt->month = 0; xt->month < 12; xt->month++) {
@@ -83,9 +83,9 @@ void xtime_fromUnix(xtime_t *xt, uint32_t u) {
 
 // Get the unix time seconds from a xtime object
 //
-uint32_t xtime_toUnix(xtime_t *xt) {
+uint32_t xtime_toUnix(const xtime_t *xt) {
   uint32_t unix_seconds = 0;
-  uint16_t t_year = (uint16_t)(xt->year + 2000);
+  uint16_t t_year = (uint16_t) (xt->year + 2000);
 
   if (t_year < OFFSET_YEAR) { return 0; }
 
