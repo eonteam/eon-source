@@ -31,19 +31,19 @@ void xsprintf(xstr_t *xs, const char *format, ...);
 // ===============================================================================
 
 // Print a string ending with a new line
-__STATIC_INLINE void xfprintln(writeFn_t wr, const char *s) {
+static inline void xfprintln(writeFn_t wr, const char *s) {
   xfprint(wr, s);
   wr('\r');
   wr('\n');
 }
 // Print an unsigned integer ending with a new line
-__STATIC_INLINE void xfprintlnUint(writeFn_t wr, uint32_t num, uint8_t base) {
+static inline void xfprintlnUint(writeFn_t wr, uint32_t num, uint8_t base) {
   xfprintUint(wr, num, base);
   wr('\r');
   wr('\n');
 }
 // Print an integer ending with a new line
-__STATIC_INLINE void xfprintlnInt(writeFn_t wr, int64_t num, uint8_t base) {
+static inline void xfprintlnInt(writeFn_t wr, int64_t num, uint8_t base) {
   xfprintInt(wr, num, base);
   wr('\r');
   wr('\n');
