@@ -1,16 +1,15 @@
 /**
-  ******************************************************************************
-  * @file    utils.h 
-  * @author  EonTeam
-	* @version V1.0.0
-  * @date    2020
-  ******************************************************************************
-*/
+ ******************************************************************************
+ * @file    utils.h
+ * @author  EonTeam
+ * @version V1.0.0
+ * @date    2020
+ ******************************************************************************
+ */
 
 #ifndef __EON_UTILS_H
 #define __EON_UTILS_H
 
-#include "system.h"
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -56,8 +55,8 @@
 #define degrees(rad) ((rad) *RAD_TO_DEG)
 #define sq(x) ((x) * (x))
 
-#define lowByte(w) ((uint8_t)((w) &0xff))
-#define highByte(w) ((uint8_t)((w) >> 8))
+#define lowByte(w) ((uint8_t) ((w) &0xff))
+#define highByte(w) ((uint8_t) ((w) >> 8))
 
 #define bitRead(value, bit) (((value) >> (bit)) & 0x01)
 #define bitSet(value, bit) ((value) |= (1UL << (bit)))
@@ -82,25 +81,25 @@ typedef int (*readFn_t)(void);
 // -- General functions
 
 // Map function execute the slope-intercept equation.
-__STATIC_INLINE long map(long x, long in_min, long in_max, long out_min, long out_max) {
+static inline long map(long x, long in_min, long in_max, long out_min, long out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 // -- Words related functions
 
 // Make a half word from two bytes (high and low).
-__STATIC_INLINE uint16_t makeHalfWord(uint8_t h, uint8_t l) {
+static inline uint16_t makeHalfWord(uint8_t h, uint8_t l) {
   return (h << 8) | l;
 }
 
 // Get the low half word of a word
-__STATIC_INLINE uint16_t lowHalfWord(uint32_t w) {
-  return (uint16_t)((w) &0xFFFF);
+static inline uint16_t lowHalfWord(uint32_t w) {
+  return (uint16_t) ((w) &0xFFFF);
 }
 
 // Get the high half word of a word
-__STATIC_INLINE uint16_t highHalfWord(uint32_t w) {
-  return (uint16_t)((w) >> 16);
+static inline uint16_t highHalfWord(uint32_t w) {
+  return (uint16_t) ((w) >> 16);
 }
 
 // ===============================================================================

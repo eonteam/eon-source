@@ -1,7 +1,6 @@
 #ifndef __XSTR_H_
 #define __XSTR_H_
 
-#include "system.h"
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -64,11 +63,11 @@ typedef struct {
 // -- For general purpose
 
 // Check if the char variable passed is a numeric digit or not.
-__STATIC_INLINE bool isCharNumber(char c) {
+static inline bool isCharNumber(char c) {
   return (c >= '0' && c <= '9');
 }
 
-__STATIC_INLINE void swap(char *x, char *y) {
+static inline void swap(char *x, char *y) {
   char t = *x;
   *x = *y;
   *y = t;
@@ -77,15 +76,15 @@ __STATIC_INLINE void swap(char *x, char *y) {
 // -- For accessing elements
 
 // Returns the char at the index specified.
-__STATIC_INLINE char xstr_charAt(const xstr_t *xs, xstrsize_t index) {
+static inline char xstr_charAt(const xstr_t *xs, xstrsize_t index) {
   return xs->ptr[index];
 }
 // Returns the length of the xstring.
-__STATIC_INLINE xstrsize_t xstr_len(const xstr_t *xs) {
+static inline xstrsize_t xstr_len(const xstr_t *xs) {
   return xs->len;
 }
 // Returns the capacity of the xstring.
-__STATIC_INLINE xstrsize_t xstr_cap(const xstr_t *xs) {
+static inline xstrsize_t xstr_cap(const xstr_t *xs) {
   return xs->cap;
 }
 
