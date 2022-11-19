@@ -31,7 +31,7 @@
 #define IRQ(__IRQ__) __IRQ__()
 
 // For unused variables
-#ifndef UNUSED
+#if !defined(USE_HAL_DEF_UNUSED_MACRO) && !defined(UNUSED)
 #define UNUSED(__X__) ((void) (__X__))
 #endif
 
