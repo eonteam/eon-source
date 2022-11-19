@@ -31,13 +31,17 @@
 #define IRQ(__IRQ__) __IRQ__()
 
 // For unused variables
+#ifndef UNUSED
 #define UNUSED(__X__) ((void) (__X__))
+#endif
 
-// No pin macro
+/// @brief No pin macro
+/// @deprecated This will be deleted in the next update in favor of PIN_NONE defined in platform code.
 #define NOPIN ((uint8_t) 255)
 
-// Ignore Macro
 #ifndef IGNORE
+/// @brief Ignore Macro
+/// @deprecated This will be deleted in the next update in favor of PIN_NONE defined in platform code.
 #define IGNORE ((uint8_t) 255)
 #endif
 
